@@ -26,5 +26,5 @@ public class Calculadora {
     public void iniciar() {
         this.setTotal(0);
     }
-   
+
 }

@@ -2,9 +2,21 @@ package es.upm.miw.pd.command.calculator;
 
 public class MementoCalculadora {
 
-    public int getValor() {
+    private int valor;
 
-        return 0;
+    private String cadena;
+
+    public MementoCalculadora(int valor, String cadena) {
+        this.valor = valor;
+        this.cadena = cadena;
+    }
+
+    public int getValor() {
+        return this.valor;
+    }
+
+    public String getCadena() {
+        return this.cadena;
     }
 
 }

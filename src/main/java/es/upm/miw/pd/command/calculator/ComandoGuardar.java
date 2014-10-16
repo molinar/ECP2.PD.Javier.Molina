@@ -2,20 +2,18 @@ package es.upm.miw.pd.command.calculator;
 
 import upm.jbb.IO;
 
-public class ComandoGuardar extends ComandoPadre {
+public class ComandoGuardar extends ComandoPadreMemento {
 
-    private GestorMementos<MementoCalculadora> gestorMementos;
-
-    private Mementable<MementoCalculadora> calculadora;
-
-    public ComandoGuardar(CalculadoraMementable calculadora) {
-        super(calculadora);
+    public ComandoGuardar(CalculadoraMementable calculadora, GestorMementos<CalculadoraMementable> gestorMementos) {
+        super(calculadora, gestorMementos);
     }
 
     @Override
     public void execute() {
-        this.gestorMementos.addMemento(IO.in.readString("Nombre de guardado"),
-                this.calculadora.guardar());
+        this.getGestorMementos().addMemento(IO.in.readString("Nombre de guardado"),
+                this.getCalculadoraMementable().guardar());
+        
+        
     }
 
     @Override

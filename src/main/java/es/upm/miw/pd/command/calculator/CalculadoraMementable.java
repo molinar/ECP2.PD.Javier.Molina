@@ -1,6 +1,6 @@
 package es.upm.miw.pd.command.calculator;
 
-public class CalculadoraMementable extends Calculadora implements Mementable<MementoCalculadora> {
+public class CalculadoraMementable extends Calculadora implements Mementable<CalculadoraMementable> {
 
     private int valor;
 
@@ -27,15 +27,16 @@ public class CalculadoraMementable extends Calculadora implements Mementable<Mem
     }
 
     @Override
-    public MementoCalculadora guardar() {
-        return new MementoCalculadora(this.valor, this.cadena);
+    public CalculadoraMementable guardar() {
+        CalculadoraMementable calculadoraMementable = new CalculadoraMementable();
+        calculadoraMementable.setTotal(getTotal());
+        return calculadoraMementable;
+        
     }
 
     @Override
-    public void deshacer(MementoCalculadora memento) {
-        this.setValor(memento.getValor());
-        this.setCadena(memento.getCadena());
-
+    public void deshacer(CalculadoraMementable calculadoraMementable) {
+        this.setTotal(calculadoraMementable.getTotal());
     }
 
 }

@@ -21,7 +21,7 @@ public abstract class ComandoPadre implements Comando{
         return this.calculadora;
     }
     
-    public Calculadora getCalculadoraMementable(){
+    public CalculadoraMementable getCalculadoraMementable(){
         return this.calculadoraMementable;
     }
 

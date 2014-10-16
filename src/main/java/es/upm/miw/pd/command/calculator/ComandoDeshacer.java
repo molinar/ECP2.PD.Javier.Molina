@@ -2,19 +2,16 @@ package es.upm.miw.pd.command.calculator;
 
 import upm.jbb.IO;
 
-public class ComandoDeshacer extends ComandoPadre {
+public class ComandoDeshacer extends ComandoPadreMemento {
 
-    private GestorMementos<MementoCalculadora> gestorMementos;
 
-    private Mementable<MementoCalculadora> calculadora;
-
-    public ComandoDeshacer(CalculadoraMementable calculadora) {
-        super(calculadora);
+    public ComandoDeshacer(CalculadoraMementable calculadora, GestorMementos<CalculadoraMementable> gestorMementos) {
+        super(calculadora, gestorMementos);
     }
 
     @Override
     public void execute() {
-        this.calculadora.deshacer(this.gestorMementos.getMemento((String) IO.in.select(this.gestorMementos.keys(), "Deshacer")));
+        this.getCalculadoraMementable().deshacer(this.getGestorMementos().getMemento((String) IO.in.select(this.getGestorMementos().keys(), "Deshacer")));
     }
 
     @Override

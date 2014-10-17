@@ -3,13 +3,14 @@ package es.upm.miw.pd.factoryMethod.naturalNumber;
 public abstract class NaturalNumber {
 
     private int value;
+
     private String[] textValue;
-    
+
     public NaturalNumber(int value, String[] textValue) {
         this.setValue(value);
         this.textValue = textValue;
     }
-    
+
     public int getValue() {
         return value;
     }
